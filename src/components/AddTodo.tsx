@@ -5,12 +5,13 @@ import "../styles/AddTodo.css";
 // 1. AddTodoProps 타입을 정의하세요.
 // - AddTodo 컴포넌트는 addTodo라는 이름의 함수를  props로 받습니다.
 // - 이 함수는 매개변수로 string 타입의 변수 text를 받으며, 반환값은 없습니다.
-
-interface AddTodoProps {}
+interface AddTodoProps {
+  addTodo(text: string): void;
+}
 
 //2. 전달받은 addTodo가 올바른 타입으로 인식되도록 타입을 적용하세요.
-//힌트 : 리액트에서 props의 타입을 정의하는 방법 -> ({props 이름} : props타입)
-const AddTodo = ({ addTodo }) => {
+// - 전달받은 propsd의 타입 정의 : {props이름}:props의 타입
+const AddTodo = ({ addTodo }: AddTodoProps) => {
   const [text, setText] = useState("");
 
   //이벤트 객체는 React.FormEvent<HTMLFormElement> 타입입니다.
